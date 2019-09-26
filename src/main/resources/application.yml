@@ -1,0 +1,56 @@
+server:
+  port: 80
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      #设置重启的目录，添加那个目录的文件需要restart
+      additional-paths: src/main/java
+      # 默认配置下,热部署后总是报404
+      poll-interval: 3000ms
+      quiet-period: 2999ms
+  redis:
+    password: Hhsrv587..
+    database: 15
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-wait: 1000ms
+        min-idle: 1
+    sentinel:
+      master: mymaster
+      nodes:
+        - 116.62.162.47:16579
+        - 116.62.162.47:16580
+        - 116.62.162.47:16581
+
+#standalone:
+#  spring:
+#    redis:
+#      host: 116.62.162.47
+#      port: 6379
+#      password: Hhsrv587..
+#      database: 15
+#      timeout: 3000ms
+#      lettuce:
+#        pool:
+#          max-wait: 1000ms
+#          min-idle: 1
+
+#sentinel:
+#  spring:
+#    redis:
+#      password: Hhsrv587..
+#      database: 15
+#      timeout: 3000ms
+#      lettuce:
+#        pool:
+#          max-wait: 1000ms
+#          min-idle: 1
+#      sentinel:
+#        master: mymaster
+#        nodes:
+#          - 116.62.162.47:16579
+#          - 116.62.162.47:16580
+#          - 116.62.162.47:16581
